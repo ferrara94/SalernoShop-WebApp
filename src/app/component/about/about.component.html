@@ -1,0 +1,34 @@
+
+<section class="space">
+</section> 
+
+<div class="p-py-3 toggle-c">
+    <p-button [icon]="activeState[0] ? 'pi pi-minus' : 'pi pi-plus'" (click)="toggle(0)" styleClass="p-button-text" label="Who we are"></p-button>
+    <p-button [icon]="activeState[1] ? 'pi pi-minus' : 'pi pi-plus'" (click)="toggle(1)" styleClass="p-button-text p-ml-2" label="Our partners"></p-button>
+    <p-button [icon]="activeState[2] ? 'pi pi-minus' : 'pi pi-plus'" (click)="toggle(2)" styleClass="p-button-text p-ml-2" label="Contacts"></p-button>
+</div>
+        
+<p-accordion>
+    <p-accordionTab header="Who we are" [(selected)]="activeState[0]">
+        <p>Our online shop includes over 3,000 items that families know they can trust. 
+            <br>These are products you can only find at Salerno Shop. 
+            <br>Family of Stores, and we stand behind each and every one of them with 
+            our quality guarantee. 
+            <br>If you're not delighted, let us know and 
+            we'll make it right with a replacement or refund.</p>
+    </p-accordionTab>
+    <p-accordionTab header="Our partners" [(selected)]="activeState[1]">
+        <p>
+            Amazon Shop <br><br>
+            Food Spring <br><br>
+        </p>
+    </p-accordionTab>
+    <p-accordionTab header="Contacts" [(selected)]="activeState[2]">
+        <p>
+            Via Roma - Duomo Salerno
+            <br><br>
+            +39 032 341066
+            <br><br>
+            info@shopsalerno.it</p>
+    </p-accordionTab>
+</p-accordion>

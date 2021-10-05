@@ -1,0 +1,30 @@
+.py-5 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  
+.bg-dark {
+    background-color: #212529 !important;
+  }
+
+  .container-footer{
+    width: 100%;
+  padding-right: var(--bs-gutter-x, 0.75rem);
+  padding-left: var(--bs-gutter-x, 0.75rem);
+  margin-right: auto;
+  margin-left: auto;
+  }
+
+  .m-0 {
+    margin: 0 !important;
+  }
+
+
+  .text-center {
+    text-align: center !important;
+  }
+  
+  .text-white {
+    color: #fff !important;
+  }
+  

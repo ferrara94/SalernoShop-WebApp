@@ -1,0 +1,24 @@
+<section class="space">
+    </section> 
+
+    <p-menubar [model]="foodStuff">
+        <ng-template pTemplate="start">
+            <img src="assets/images/icons/foodstuffb.png" height="40" class="p-mr-2">
+        </ng-template>
+        <ng-template pTemplate="end">
+            <input type="text" pInputText placeholder="Search Product">
+        </ng-template>
+    </p-menubar>
+
+<section class="products-list">
+    
+    <div >      
+
+                <div *ngFor="let p of products" class="container">
+                
+                    <app-product [product]="p" >
+                    </app-product>
+                
+        </div>
+    </div>
+</section>

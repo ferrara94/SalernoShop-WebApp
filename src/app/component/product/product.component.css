@@ -1,0 +1,17 @@
+.example-card {
+    max-width: 250px;
+  }
+  
+  .header-image {
+    background-image: url("/assets/images/icons/shopping-cart.png");
+    background-size: cover;
+  }
+  
+  .container-card{
+    margin-bottom: 4rem;
+    margin-left: 2rem;
+  }
+
+  .description {
+      height: 100px;
+  }

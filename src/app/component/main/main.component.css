@@ -1,0 +1,19 @@
+.layer1 {
+    position:absolute;
+    z-index: 1;
+}
+
+.layer2 {
+    position:relative;
+    z-index: 2;
+}
+
+.footer-div{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: red;
+  color: white;
+  text-align: center;
+}
