@@ -23,6 +23,11 @@ import { CustomersComponent } from './component/customers/customers.component';
 import {AccordionModule} from 'primeng/accordion';
 import {SlideMenuModule} from 'primeng/slidemenu';
 import {MenubarModule} from 'primeng/menubar';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { ChangeImagesDDirective } from './directive/images/change-images-d.directive';
+import { AddProductsComponent } from './component/add-products/add-products.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +41,10 @@ import {MenubarModule} from 'primeng/menubar';
     HomeComponent,
     ProductsComponent,
     FooterComponent,
-    CustomersComponent
+    CustomersComponent,
+    ChangeImagesDDirective,
+    AddProductsComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -50,7 +58,10 @@ import {MenubarModule} from 'primeng/menubar';
     ButtonModule,
     AccordionModule,
     SlideMenuModule,
-    MenubarModule
+    MenubarModule,
+    MatFormFieldModule,
+    CommonModule,
+    FormsModule
     
   ],
   providers: [],

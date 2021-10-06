@@ -24,13 +24,10 @@ export class ProductsComponent implements OnInit {
                     label:'Add',
                     icon:'pi pi-fw pi-plus',
                     items:[
-                    {
-                        label:'Pasta', icon:'pi pi-fw pi-bookmark'
-                    },
-                    { 
-                      label:'Fish', icon:'pi pi-fw pi-video'
-                    },
-
+                        {
+                            label:'Products', icon:'pi pi-fw pi-file',
+                            routerLink: '/addproducts'
+                        }
                     ]
                 },
                 {
@@ -49,19 +46,24 @@ export class ProductsComponent implements OnInit {
             icon:'pi pi-fw pi-apple',
             items:[
                 {
-                    label:'Pasta', icon:'pi pi-fw pi-file-o'
+                    label:'Pasta', icon:'pi pi-fw pi-file-o',
+                    command: () => this.getPasta()
                 },
                 {
-                    label:'Fish', icon:'pi pi-fw pi-file-o'
+                    label:'Fish', icon:'pi pi-fw pi-file-o',
+                    command: () => this.getFish()
                 },
                 {
-                    label:'Chocolate', icon:'pi pi-fw pi-file-o'
+                    label:'Chocolate', icon:'pi pi-fw pi-file-o',
+                    command: () => this.getChocolate()
                 },
                 {
-                    label:'Water', icon:'pi pi-fw pi-file-o'
+                    label:'Water', icon:'pi pi-fw pi-file-o',
+                    command: () => this.getWater()
                 },
                 {
-                  label:'All', icon:'pi pi-fw pi-file-o'
+                    label:'All', icon:'pi pi-fw pi-file-o',
+                    command: () => this.getAll()
               }
 
             ]
@@ -75,6 +77,51 @@ export class ProductsComponent implements OnInit {
     this.pService.downloadProducts().subscribe(res => {
       this.products = res;
     });
+  }
+
+  getPasta(){
+    this.pService.downloadPastaProducts().subscribe(res => {
+        this.products = res;
+        let img = document.getElementById('icon-i');
+        img?.setAttribute('src',"assets/images/icons/pasta-icon.png");
+        
+      });
+  }
+
+  getFish(){
+    this.pService.downloadFishProducts().subscribe(res => {
+        this.products = res;
+        let img = document.getElementById('icon-i');
+        img?.setAttribute('src',"assets/images/icons/fish-icon.png");
+        
+      });
+  }
+
+  getWater(){
+    this.pService.downloadWaterProducts().subscribe(res => {
+        this.products = res;
+        let img = document.getElementById('icon-i');
+        img?.setAttribute('src',"assets/images/icons/water-bottle-icon.png");
+        
+      });
+  }
+
+  getAll(){
+    this.pService.downloadProducts().subscribe(res => {
+        this.products = res;
+        let img = document.getElementById('icon-i');
+        img?.setAttribute('src',"assets/images/icons/foodstuffb.png");
+        
+      });
+  }
+
+  getChocolate(){
+    this.pService.downloadChocolateProducts().subscribe(res => {
+        this.products = res;
+        let img = document.getElementById('icon-i');
+        img?.setAttribute('src',"assets/images/icons/water-bottle-icon.png");
+        
+      });
   }
 
 }

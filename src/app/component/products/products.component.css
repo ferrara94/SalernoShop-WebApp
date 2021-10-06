@@ -10,3 +10,13 @@
 .products-list {
     margin-top: 2rem;
 }
+
+#overlay {
+    width: 100px;
+    height: 100px;
+   align-items: center;
+    z-index: 1;
+    position:absolute;
+    top:450px;
+    left:450px;
+  }
