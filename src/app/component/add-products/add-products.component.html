@@ -1,31 +1,85 @@
 <div class="container-f">
     
-    <h3 class="header-">Add product</h3>
+    <p-menubar [model]="foodStuff">
+        <ng-template pTemplate="start">
+            <img id="icon-i" src="assets/images/icons/foodstuffb.png" height="40" class="p-mr-2">
+        </ng-template>
+        
+    </p-menubar>
 
     <div class="container">
-    <form action="/action_page.php">
-        <label for="pname">Product Name</label>
-        <input type="text" id="pname" name="productname" 
-        placeholder="Product name..">
+    <form #login="ngForm" (ngSubmit)="addProduct(login)">
 
-        <label for="price">Price</label>
-        <input type="text" id="price" name="price" 
-        placeholder="€.">
+        <div class="form-group"> 
+            <label for="pname">Product Name</label>
+            <input type="text" id="pname" name="productname" 
+            placeholder="Product name.." [(ngModel)]="name"
+            ngModel>
+        </div>
+        
+        <div class="form-group">
+            <label for="price">Price ( € )</label>
+            <input type="text" id="price" name="price" 
+            placeholder="20" [(ngModel)]="price"
+            ngModel >
+        </div>
 
-        <label for="foodstuff">Food Stuff</label>
-        <select id="foodstuff" name="foodstuff">
-        <option value="pasta">pasta</option>
-        <option value="water">water</option>
-        <option value="fish">fish</option>
-        <option value="chocolate">chocolate</option>
-        </select>
+        <div class="form-group">
+            <label for="foodstuff">Food Stuff</label>
+            <select id="foodstuff" name="foodstuff" 
+            ngModel [(ngModel)]="foodSt">
+                <option value="pasta">pasta</option>
+                <option value="water">water</option>
+                <option value="fish">fish</option>
+                <option value="chocolate">chocolate</option>
+            </select>
+        </div>
 
-        <label for="description">Product description</label>
-        <textarea id="subject" name="subject" 
-        placeholder="Write something.." 
-        style="height:100px"></textarea>
+        <br>
+        <label for="images">Product images</label>
+            
+        <div class="form-group containerImage">
+            
+            <div>
+                
+                <div class="containerFile"
+                    (click)="fileInput.click()"
+                    appDragdrop (onFileDropped)="onDrag($event)"
+                >
+        
+                    <input 
+                    class="img-input"
+                    hidden type="file" #fileInput
+                    (change)="onDrag($event.target)"
+                    >
+                    <div
+                    class="file-list" *ngFor="let f"
+                    >
+                    <p *ngIf="f != null">
+                        {{f.name}}
+                    </p>
+                    </div>
+            
+            
+                    <img width="80px" heigth="80px" src="assets/images/icons/img-icon.png"
+                    alt="pdf">
+            
+                </div>
 
-        <input type="submit" value="Submit">
+            </div>
+            
+          
+        </div>
+
+        <div class="form-group">
+            <label for="description">Product description</label>
+            <textarea id="subject" name="subject" 
+            placeholder="Write something.." 
+            [(ngModel)]="desc"
+            style="height:100px"></textarea>
+        </div>
+
+        <input type="submit" value="Add">
     </form>
     </div>
 </div>
