@@ -35,6 +35,11 @@ export class MainComponent implements OnInit {
         routerLink: '/about'
       },
       {
+        label: 'Customers', icon: 'pi pi-fw pi-users',
+        routerLink: '/customers'
+      }
+      ,
+      {
         label: '|'
       },
       {

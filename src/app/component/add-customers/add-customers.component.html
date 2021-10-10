@@ -1,0 +1,61 @@
+<div class="container-f">
+    
+    <p-menubar [model]="nations">
+        <ng-template pTemplate="start">
+            <img id="icon-i" src="assets/images/icons/customers-icon.png" height="40" class="p-mr-2">
+        </ng-template>
+        
+    </p-menubar>
+
+    <div class="container">
+        <form [formGroup]="CustomerForm">
+
+            <div class="form-group">
+              <label class="col-form-label">Name:</label>
+              <input formControlName="cname" type="text" class="form-control">
+              
+              <small style="color: red;" *ngIf="cname">
+                Name is Required
+                <br><br>
+              </small> 
+
+            </div>
+            
+            <div class="form-group">
+                <label class="col-form-label">ID Number:</label>
+                <input formControlName="cid" type="text" class="form-control">
+                <small style="color: red;" *ngIf="cid">
+                    ID Number is Required and/or must be 4+ digit
+                    <br><br>
+                  </small> 
+            </div>
+            
+            <div class="form-group">
+                <label class="col-form-label">Email:</label>
+                <input formControlName="cmail" type="text" class="form-control" >
+                <small style="color: red;" *ngIf="cmail">
+                    E-mail format not valid
+                    <br><br>
+                  </small> 
+            </div>
+
+            <div class="form-group">
+                <label class="col-form-label">Phone:</label>
+                <input formControlName="cphone" type="text" class="form-control" >
+                <small style="color: red;" *ngIf="cphone">
+                    Phone Number is Required and/or must be 10 digit
+                    <br><br>
+                </small> 
+            </div>
+
+            <div class="form-group">
+                <label class="col-form-label">Brief Description:</label>
+                <textarea formControlName="cdesc" class="form-control" ></textarea>
+            </div>
+            
+            <button (click)="addCustomer()" 
+                [disabled]="CustomerForm.invalid" 
+                type="button">Add</button>
+          </form>
+    </div>
+</div>

@@ -24,10 +24,11 @@ import {AccordionModule} from 'primeng/accordion';
 import {SlideMenuModule} from 'primeng/slidemenu';
 import {MenubarModule} from 'primeng/menubar';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ChangeImagesDDirective } from './directive/images/change-images-d.directive';
 import { AddProductsComponent } from './component/add-products/add-products.component';
+import { AddCustomersComponent } from './component/add-customers/add-customers.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { AddProductsComponent } from './component/add-products/add-products.comp
     FooterComponent,
     CustomersComponent,
     ChangeImagesDDirective,
-    AddProductsComponent
+    AddProductsComponent,
+    AddCustomersComponent
     
   ],
   imports: [
@@ -61,7 +63,8 @@ import { AddProductsComponent } from './component/add-products/add-products.comp
     MenubarModule,
     MatFormFieldModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
     
   ],
   providers: [],

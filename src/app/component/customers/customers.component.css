@@ -1,0 +1,12 @@
+.container{
+    display: inline-block;
+}
+
+.space{
+    margin-top: 100px;
+    margin-bottom: 70px;
+}
+
+.products-list {
+    margin-top: 2rem;
+}
