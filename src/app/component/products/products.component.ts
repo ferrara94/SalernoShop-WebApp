@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../../interface/product';
 import { ProductsService } from '../../service/products.service';
 import {MenuItem} from 'primeng/api';
+import { ExportToCsv } from 'export-to-csv';
 
 @Component({
   selector: 'app-products',
@@ -67,6 +68,16 @@ export class ProductsComponent implements OnInit {
               }
 
             ]
+        },
+        {
+          label:'Export',
+          icon:'pi pi-fw pi-download',
+          items:[
+              {
+                  label:'CSV', icon:'pi pi-fw pi-file-o',
+                  command: () => this.getCsv()
+              }
+            ]
         }
         
     ];
@@ -122,6 +133,27 @@ export class ProductsComponent implements OnInit {
         img?.setAttribute('src',"assets/images/icons/water-bottle-icon.png");
         
       });
+  }
+
+  getCsv(){
+    console.log("csv")
+        
+      const options = { 
+        fieldSeparator: ',',
+        quoteStrings: '"',
+        decimalSeparator: '.',
+        showLabels: true, 
+        showTitle: true,
+        title: 'Products List',
+        useTextFile: false,
+        useBom: true,
+        useKeysAsHeaders: true,
+        // headers: ['Column 1', 'Column 2', etc...] <-- Won't work with useKeysAsHeaders present!
+      };
+
+      const csvExport = new ExportToCsv(options);
+      csvExport.options.filename = "products";
+      csvExport.generateCsv(this.products);
   }
 
 }
