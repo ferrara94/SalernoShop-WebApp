@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {PasswordModule} from 'primeng/password';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,6 +30,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { ChangeImagesDDirective } from './directive/images/change-images-d.directive';
 import { AddProductsComponent } from './component/add-products/add-products.component';
 import { AddCustomersComponent } from './component/add-customers/add-customers.component';
+import { LogInComponent } from './component/log-in/log-in.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import { AddCustomersComponent } from './component/add-customers/add-customers.c
     CustomersComponent,
     ChangeImagesDDirective,
     AddProductsComponent,
-    AddCustomersComponent
+    AddCustomersComponent,
+    LogInComponent
     
   ],
   imports: [
@@ -64,7 +67,8 @@ import { AddCustomersComponent } from './component/add-customers/add-customers.c
     MatFormFieldModule,
     CommonModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PasswordModule
     
   ],
   providers: [],

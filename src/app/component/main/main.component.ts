@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {MenuItem, PrimeIcons} from 'primeng/api';
 
 
@@ -11,7 +12,7 @@ export class MainComponent implements OnInit {
 
   navItems!: MenuItem[];
   
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
 
@@ -48,7 +49,7 @@ export class MainComponent implements OnInit {
       },
       {
         label: 'Log In', icon: 'pi pi-fw pi-user', 
-        //command: () => this.logInF()
+        command: () => this.logInF()
       },
       {
         label:'Log Out', icon:'pi pi-fw pi-power-off', 
@@ -56,6 +57,10 @@ export class MainComponent implements OnInit {
       }
     ];
 
+  }
+
+  logInF() {
+    this.router.navigateByUrl('/logIn');
   }
 
   aboutF() {
