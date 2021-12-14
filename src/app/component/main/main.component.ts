@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {MenuItem, PrimeIcons} from 'primeng/api';
+import { LogInService } from 'src/app/service/login.service';
 
 
 @Component({
@@ -12,7 +13,7 @@ export class MainComponent implements OnInit {
 
   navItems!: MenuItem[];
   
-  constructor(private router: Router) { }
+  constructor(private router: Router, private loginService: LogInService) { }
 
   ngOnInit(): void {
 
@@ -29,7 +30,8 @@ export class MainComponent implements OnInit {
       },
       {
         label: 'Products', icon: 'pi pi-pw pi-file', 
-        routerLink: '/products'
+        //routerLink: '/products'
+        command: () => this.productsF()
       },
       {
         label: 'About', icon: 'pi pi-fw pi-cog', 
@@ -47,10 +49,10 @@ export class MainComponent implements OnInit {
         label: 'User', icon: 'pi pi-fw pi-users', 
       //  command: () => this.userF()
       },
-      {
+     /*  {
         label: 'Log In', icon: 'pi pi-fw pi-user', 
         command: () => this.logInF()
-      },
+      }, */
       {
         label:'Log Out', icon:'pi pi-fw pi-power-off', 
         //command: () => this.logOutF()
@@ -72,7 +74,11 @@ export class MainComponent implements OnInit {
   }
 
   productsF() {
-    alert("click on products");
+    if(this.loginService.logIn()) 
+      this.router.navigateByUrl('/products');
+    else {
+      console.log("credentials not entered")
+    }
   }
 
 
