@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import {MenuItem, PrimeIcons} from 'primeng/api';
 import { LogInService } from 'src/app/service/login.service';
 
@@ -12,8 +13,14 @@ import { LogInService } from 'src/app/service/login.service';
 export class MainComponent implements OnInit {
 
   navItems!: MenuItem[];
-  
-  constructor(private router: Router, private loginService: LogInService) { }
+  area: any;
+  btn: any;
+
+  constructor(
+      private router: Router,
+      private loginService: LogInService,
+      private toasts: ToastrService
+  ) { }
 
   ngOnInit(): void {
 
@@ -77,6 +84,9 @@ export class MainComponent implements OnInit {
     if(this.loginService.logIn()) 
       this.router.navigateByUrl('/products');
     else {
+      this.toasts.error('Credentials not entered!', 'ERROR');
+      let toast = document.getElementById("toast-container")
+      
       console.log("credentials not entered")
     }
   }
