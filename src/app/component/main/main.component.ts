@@ -62,7 +62,7 @@ export class MainComponent implements OnInit {
       }, */
       {
         label:'Log Out', icon:'pi pi-fw pi-power-off', 
-        //command: () => this.logOutF()
+        command: () => this.logOutF()
       }
     ];
 
@@ -80,19 +80,27 @@ export class MainComponent implements OnInit {
     alert("click on home");
   }
 
+  logOutF(){
+    if(this.loginService.getLoggedFlag()){
+      this.toasts.success("You left successfully","GoodBye")
+      this.loginService.setLoggedFlag(false);
+      this.loginService.removeUser();
+      this.router.navigate(['/home',
+      {
+        isLogged: false  
+      }
+    ]);
+    }else {
+      this.toasts.warning('You are not logged in!', 'Attention!');
+    }
+  }
+
   productsF() {
     if(this.loginService.getLoggedFlag()){
       this.router.navigateByUrl('/products');
     } else {
-      this.toasts.error('Credentials not entered!', 'ERROR'); 
+      this.toasts.warning(`Credentials not entered! You must be logged in`, 'Attention!'); 
     }
-    /* if(this.loginService.logIn()) 
-      this.router.navigateByUrl('/products');
-    else {
-      this.toasts.error('Credentials not entered!', 'ERROR'); 
-            console.log("credentials not entered")
-
-    }*/   
   }
 
 

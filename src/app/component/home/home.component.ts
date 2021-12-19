@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
+  isLogged:boolean;
+
+  constructor(private router: ActivatedRoute) {
+    this.isLogged = false;
+   }
 
   ngOnInit(): void {
+    this.router.paramMap.subscribe((params) => {
+      if(params.get('isLogged')) {
+        console.log(params.get('isLogged'))
+        this.isLogged = Boolean(params.get('isLogged'));
+      }
+    });
   }
 
 }

@@ -10,10 +10,12 @@ export class LogInService {
 
   user: UserCredential;
   logged: boolean;
+  role: string;
 
   constructor( public http: HttpClient ) {
     this.user = new UserCredential;
     this.logged = false;
+    this.role = "";
   }
 
   logIn() :Observable<any> {
@@ -34,6 +36,14 @@ export class LogInService {
     return this.user.username;
   }
 
+  getRole() {
+    return this.role;
+  }
+
+  setRole(role: string) {
+    return this.role = role;
+  }
+
   setLoggedFlag(flag: boolean) {
     this.logged = flag;
   }
@@ -48,6 +58,12 @@ export class LogInService {
 
   getUserCredential() {
     return this.user;
+  }
+
+  removeUser(){
+    this.user.password = "";
+    this.user.username = "";
+    this.role = "";
   }
 
 }

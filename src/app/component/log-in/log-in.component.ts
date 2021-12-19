@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {MenuItem} from 'primeng/api';
 import { LogInService } from 'src/app/service/login.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,6 +11,10 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./log-in.component.css']
 })
 export class LogInComponent implements OnInit {
+
+  @Input()
+  loggedCondition!: boolean;
+
   in: MenuItem[];
   out: MenuItem[];
   showPassword: boolean;
@@ -21,7 +26,8 @@ export class LogInComponent implements OnInit {
 
   constructor(
     private loginService: LogInService,
-    private toasts: ToastrService) {
+    private toasts: ToastrService,
+    private router: Router) {
 
     this.in = [
       { label:'Enter Credentials' }
@@ -33,8 +39,13 @@ export class LogInComponent implements OnInit {
 
     this.username = "";
     this.password = "";
-    this.isLogged = false;
+    this.isLogged = this.loginService.getLoggedFlag();
+
     this.role = "";
+    if(this.isLogged) {
+      this.username = this.loginService.getUsername();
+      this.role = this.loginService.getRole();
+    }
    }
 
    showPass(){
@@ -45,7 +56,18 @@ export class LogInComponent implements OnInit {
     
   }
 
-  logOut(){}
+  logOut(){
+    if(this.loginService.getLoggedFlag()){
+      this.toasts.info("You left successfully","GoodBye")
+      this.loginService.setLoggedFlag(false);
+      this.loginService.removeUser();
+      this.isLogged = false;
+      this.username = "";
+      this.password = "";
+    }else {
+      this.toasts.warning('You are not logged in!', 'Attention!');
+    }
+  }
 
   logIn() {
     this.loginService.setUserCredential(this.username,this.password);
@@ -53,6 +75,7 @@ export class LogInComponent implements OnInit {
       if(res) {
         this.isLogged = true;
         this.role = res['role'];
+        this.loginService.setRole(this.role);
         this.loginService.setLoggedFlag(true);
         this.toasts.success('You are logged', 'GREAT!')
       }
