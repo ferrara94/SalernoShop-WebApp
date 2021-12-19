@@ -81,14 +81,18 @@ export class MainComponent implements OnInit {
   }
 
   productsF() {
-    if(this.loginService.logIn()) 
+    if(this.loginService.getLoggedFlag()){
+      this.router.navigateByUrl('/products');
+    } else {
+      this.toasts.error('Credentials not entered!', 'ERROR'); 
+    }
+    /* if(this.loginService.logIn()) 
       this.router.navigateByUrl('/products');
     else {
-      this.toasts.error('Credentials not entered!', 'ERROR');
-      let toast = document.getElementById("toast-container")
-      
-      console.log("credentials not entered")
-    }
+      this.toasts.error('Credentials not entered!', 'ERROR'); 
+            console.log("credentials not entered")
+
+    }*/   
   }
 
 
