@@ -16,5 +16,7 @@ public interface UserService {
 	
 	public boolean userCredentialsJustEntered(String userid, String role);
 	
+	public void populateDB();
+	
 	
 }

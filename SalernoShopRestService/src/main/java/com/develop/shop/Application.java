@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
 import com.develop.shop.service.ProductsService;
+import com.develop.shop.users.UserService;
 
 @SpringBootApplication
 public class Application {
@@ -16,7 +17,8 @@ public class Application {
 		ProductsService products = context.getBean(ProductsService.class);
 		products.populateDB();
 		
-		
+		UserService users = context.getBean(UserService.class);
+		users.populateDB();				
 		
 	}
 

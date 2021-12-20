@@ -23,7 +23,6 @@ public class UserC implements Serializable {
 	
 	private boolean active;
 	
-	@Column(unique = true)
 	private String role;
 
 	public UserC(String userid, String password, boolean active, String role) {

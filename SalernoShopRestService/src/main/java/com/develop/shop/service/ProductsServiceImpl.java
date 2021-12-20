@@ -8,18 +8,13 @@ import org.springframework.stereotype.Service;
 
 import com.develop.shop.entity.Product;
 import com.develop.shop.repository.ProductsRepository;
-import com.develop.shop.users.UserC;
-import com.develop.shop.users.UserRepository;
 
 @Service
 public class ProductsServiceImpl implements ProductsService {
 
 	@Autowired
 	ProductsRepository repo;
-	
-	@Autowired
-	UserRepository secRepo;
-	
+		
 	@Override
 	public List<Product> getProductsByFoodstuff(String foodstuff) {
 		
@@ -68,22 +63,7 @@ public class ProductsServiceImpl implements ProductsService {
 		
 		repo.saveAll(products);
 		
-		//Users
 		
-		UserC user = new UserC();
-		user.setUserid("Felice");
-		user.setPassword("01234");
-		user.setRole("USER");
-		user.setActive(true);
-		
-		UserC admin = new UserC();
-		admin.setUserid("Admin");
-		admin.setPassword("87960");
-		admin.setRole("ADMIN");
-		admin.setActive(true);
-		
-		secRepo.save(user);
-		secRepo.save(admin);
 	}
 
 	@Override

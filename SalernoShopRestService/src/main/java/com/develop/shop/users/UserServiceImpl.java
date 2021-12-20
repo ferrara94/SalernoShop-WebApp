@@ -54,5 +54,41 @@ public class UserServiceImpl implements UserService {
 		
 		return false;
 	}
+
+	@Override
+	public void populateDB() {
+		
+		//Users
+		
+		UserC user = new UserC();
+		user.setUserid("Felice");
+		user.setPassword("01234");
+		user.setRole("USER");
+		user.setActive(true);
+		
+		UserC user2 = new UserC();
+		user2.setUserid("Marco");
+		user2.setPassword("56789");
+		user2.setRole("USER");
+		user2.setActive(true);
+		
+		UserC user3 = new UserC();
+		user3.setUserid("John");
+		user3.setPassword("00000");
+		user3.setRole("USER");
+		user3.setActive(false);
+				
+		UserC admin = new UserC();
+		admin.setUserid("Admin");
+		admin.setPassword("87960");
+		admin.setRole("ADMIN");
+		admin.setActive(true);
+				
+		repo.save(user);
+		repo.save(user2);
+		repo.save(user3);
+		repo.save(admin);
+		
+	}
 	
 }
