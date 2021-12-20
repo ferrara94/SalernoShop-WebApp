@@ -12,3 +12,26 @@
 <div hidden id="overlay">
     <br><br>asadasddsfdsssssss<br>asfdfiasdhfihsdai
 </div>
+
+<br><br>
+
+<div>
+    <p-table [columns]="cols" [value]="customers">
+        <ng-template pTemplate="header" let-columns>
+            <tr>
+                <th *ngFor="let col of columns">
+                    {{col}}
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-customer let-columns="columns">
+            <tr *ngIf="customer.role != 'ADMIN'">
+                <td *ngFor="let col of columns">                    
+                    {{customer[col]}}
+                </td>
+            </tr>
+        </ng-template>
+</p-table>
+
+</div>
+

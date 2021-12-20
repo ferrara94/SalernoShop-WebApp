@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {MenuItem} from 'primeng/api';
-
+import { CustomersService } from 'src/app/service/customers.service';
+import { Customer } from '../../class/CustomerClass';
 
 @Component({
   selector: 'app-customers',
@@ -11,7 +12,10 @@ export class CustomersComponent implements OnInit {
 
   customerActions: MenuItem[];
 
-  constructor() { 
+  cols: string[] = [];
+  customers: Customer[] = [];
+
+  constructor(private service: CustomersService) { 
 
     this.customerActions = [
       {
@@ -43,6 +47,13 @@ export class CustomersComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    this.cols = ["userid", "role", "password" , "active"]
+    
+    this.service.getCustomers().subscribe(res => {
+     console.log(res);
+     this.customers = res;
+    });
   }
 
 }

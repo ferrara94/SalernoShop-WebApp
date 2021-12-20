@@ -32,6 +32,8 @@ import { ChangeImagesDDirective } from './directive/images/change-images-d.direc
 import { AddProductsComponent } from './component/add-products/add-products.component';
 import { AddCustomersComponent } from './component/add-customers/add-customers.component';
 import { LogInComponent } from './component/log-in/log-in.component';
+import {TableModule} from 'primeng/table';
+
 
 @NgModule({
   declarations: [
@@ -61,6 +63,7 @@ import { LogInComponent } from './component/log-in/log-in.component';
     TabMenuModule,
     HttpClientModule,
     CardModule,
+    TableModule,
     MatCardModule,
     ButtonModule,
     AccordionModule,
