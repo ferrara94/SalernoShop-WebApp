@@ -70,7 +70,10 @@ export class LogInComponent implements OnInit {
   }
 
   logIn() {
-    this.loginService.setUserCredential(this.username,this.password);
+    if(!this.password || !this.username) {
+      this.toasts.warning('You have to enter username/password', 'ATTENTION!'); 
+    } else {
+      this.loginService.setUserCredential(this.username,this.password);
     this.loginService.logIn().subscribe(res => {
       if(res) {
         this.isLogged = true;
@@ -83,6 +86,7 @@ export class LogInComponent implements OnInit {
         this.toasts.error('Credentials not valid!', 'ERROR'); 
       }
     });    
+    }    
   }
 
 }
