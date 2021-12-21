@@ -1,5 +1,6 @@
 package com.develop.shop.users;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -88,6 +89,44 @@ public class UserServiceImpl implements UserService {
 		repo.save(user2);
 		repo.save(user3);
 		repo.save(admin);
+		
+	}
+	
+	public List<UserC> createUsersList(){
+		
+		List<UserC> list = new LinkedList<>();
+		
+		UserC user = new UserC();
+		user.setUserid("Felice");
+		user.setPassword("01234");
+		user.setRole("USER");
+		user.setActive(true);
+		
+		UserC user2 = new UserC();
+		user2.setUserid("Marco");
+		user2.setPassword("56789");
+		user2.setRole("USER");
+		user2.setActive(true);
+		
+		UserC user3 = new UserC();
+		user3.setUserid("John");
+		user3.setPassword("00000");
+		user3.setRole("USER");
+		user3.setActive(false);
+				
+		UserC admin = new UserC();
+		admin.setUserid("Admin");
+		admin.setPassword("87960");
+		admin.setRole("ADMIN");
+		admin.setActive(true);
+		
+		list.add(user);
+		list.add(user2);
+		list.add(user3);
+		list.add(admin);
+		
+		
+		return list;
 		
 	}
 	

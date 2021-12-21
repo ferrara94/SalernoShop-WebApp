@@ -24,7 +24,7 @@ public class UsersController {
 	@Autowired
 	UserService service;
 	
-	@GetMapping(value = "/get/all")
+	@GetMapping(value = "/a/get/all")
 	public ResponseEntity<?>  getAllUser(){
 				
 		List<UserC> users = service.getAllUsers();
@@ -59,7 +59,7 @@ public class UsersController {
 		return new ResponseEntity<>(responseNode, headers, HttpStatus.OK);
 	}
 	
-	@GetMapping(value = "/get/user/{userId}/{password}")
+	@GetMapping(value = "/_/get/user/{userId}/{password}")
 	public ResponseEntity<?> getUserByUserIdAndPassword(@PathVariable("userId") String UserId
 			,@PathVariable("password") String password) {
 				

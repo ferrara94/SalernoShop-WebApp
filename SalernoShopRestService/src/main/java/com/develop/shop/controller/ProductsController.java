@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.develop.shop.entity.Product;
@@ -20,14 +20,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
 @RestController
-//@RequestMapping("api/rest/products")
+@RequestMapping("api/products")
 @CrossOrigin(origins = "http://localhost:4200")
 public class ProductsController {
 
 	@Autowired
 	ProductsServiceImpl service;
 	
-	@GetMapping(value ="rest/items/all/json")
+	@GetMapping(value ="/u/rest/items/all/json")
 	public ResponseEntity<List<Product>> getProducts(){
 		
 		List<Product> items = service.getAllProducts();
@@ -39,7 +39,7 @@ public class ProductsController {
 		
 	}
 	
-	@GetMapping(value ="rest/items/pasta/json")
+	@GetMapping(value ="/u/rest/items/pasta/json")
 	public ResponseEntity<List<Product>> getPastaProducts(){
 		
 		List<Product> products = service.getProductsByFoodstuff("pasta");
@@ -51,7 +51,7 @@ public class ProductsController {
 		
 	}
 	
-	@GetMapping(value ="rest/items/water/json")
+	@GetMapping(value ="/u/rest/items/water/json")
 	public ResponseEntity<List<Product>> getWaterProducts(){
 		
 		List<Product> products = service.getProductsByFoodstuff("water");
@@ -63,7 +63,7 @@ public class ProductsController {
 		
 	}
 	
-	@GetMapping(value ="rest/items/fish/json")
+	@GetMapping(value ="/u/rest/items/fish/json")
 	public ResponseEntity<List<Product>> getFishProducts(){
 		
 		List<Product> products = service.getProductsByFoodstuff("fish");
@@ -75,7 +75,7 @@ public class ProductsController {
 		
 	}
 	
-	@GetMapping(value ="rest/items/chocolate/json")
+	@GetMapping(value ="/u/rest/items/chocolate/json")
 	public ResponseEntity<List<Product>> getChocolateProducts(){
 		
 		List<Product> products = service.getProductsByFoodstuff("chocolate");
