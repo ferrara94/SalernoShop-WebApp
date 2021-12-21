@@ -1,24 +1,39 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Product } from '../interface/product';
 import { ProductC } from '../class/ProductClass';
+import { LogInService } from './login.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
 
-  constructor(public http: HttpClient) {
-        
+  username: string;
+  password: string;
+
+  constructor(public http: HttpClient,
+    private loginService: LogInService) {
+        this.username = loginService.getUsername();
+        this.password = loginService.getPassword();
    }
 
   downloadProducts() :Observable<Product[]> {
-    return this.http.get<Product[]>('http://localhost:8080/rest/items/all/json');
+    const headers = new HttpHeaders(
+        { Authorization: 'Basic ' + btoa(this.username + ':' + this.password) }
+    );
+    return this.http.get<Product[]>(
+        'http://localhost:8080/api/products/u/rest/items/all/json',
+        {headers});
   }
 
   downloadPastaProducts() :Observable<Product[]> {
-    return this.http.get<Product[]>('http://localhost:8080/rest/items/pasta/json');
+    const headers = new HttpHeaders(
+      { Authorization: 'Basic ' + btoa(this.username + ':' + this.password) }
+  );
+    return this.http.get<Product[]>('http://localhost:8080/api/products/u/rest/items/pasta/json',
+    {headers});
   }
 
   downloadWaterProducts() :Observable<Product[]> {

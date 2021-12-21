@@ -12,7 +12,7 @@ export class CustomersService {
   constructor(public http: HttpClient) { }
 
   getCustomers() :Observable<Customer[]> {
-    return this.http.get<Customer[]>('http://localhost:8080/api/users/get/all');
+    return this.http.get<Customer[]>('http://localhost:8080/api/users/a/get/all');
   }
 
 }

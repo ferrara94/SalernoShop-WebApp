@@ -23,7 +23,7 @@ export class LogInService {
     let password = this.user.password;
 
     return this.http.get<any>(
-      `http://localhost:8080/api/users/get/user/${username}/${password}`
+      `http://localhost:8080/api/users/_/get/user/${username}/${password}`
       );
   }
 
