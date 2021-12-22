@@ -46,7 +46,7 @@ export class MainComponent implements OnInit {
       },
       {
         label: 'Customers', icon: 'pi pi-fw pi-users',
-        routerLink: '/customers'
+        command: () => this.customerF()
       }
       ,
       {
@@ -98,6 +98,18 @@ export class MainComponent implements OnInit {
   productsF() {
     if(this.loginService.getLoggedFlag()){
       this.router.navigateByUrl('/products');
+    } else {
+      this.toasts.warning(`Credentials not entered! You must be logged in`, 'Attention!'); 
+    }
+  }
+
+  customerF(){
+    if(this.loginService.getLoggedFlag()){
+      if(this.loginService.getRole() == "ADMIN"){
+        this.router.navigateByUrl('/customers');
+      } else {
+        this.toasts.warning(`You have no permission to view this page`, 'Attention!'); 
+      }        
     } else {
       this.toasts.warning(`Credentials not entered! You must be logged in`, 'Attention!'); 
     }

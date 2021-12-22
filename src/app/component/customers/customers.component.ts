@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {MenuItem} from 'primeng/api';
+import { throwError } from 'rxjs';
 import { CustomersService } from 'src/app/service/customers.service';
 import { Customer } from '../../class/CustomerClass';
 
@@ -50,10 +51,15 @@ export class CustomersComponent implements OnInit {
 
     this.cols = ["userid", "role", "password" , "active"]
     
-    this.service.getCustomers().subscribe(res => {
-     console.log(res);
-     this.customers = res;
-    });
+    this.service.getCustomers().subscribe(
+      res => {
+      console.log(res);
+      this.customers = res;
+      },
+      error => {
+        console.log('error',error)
+      }
+    );
   }
 
 }

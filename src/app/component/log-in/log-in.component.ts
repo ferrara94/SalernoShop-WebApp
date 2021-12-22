@@ -62,6 +62,7 @@ export class LogInComponent implements OnInit {
       this.loginService.setLoggedFlag(false);
       this.loginService.removeUser();
       this.isLogged = false;
+      this.loginService.setUserCredential("","");
       this.username = "";
       this.password = "";
     }else {
@@ -74,18 +75,18 @@ export class LogInComponent implements OnInit {
       this.toasts.warning('You have to enter username/password', 'ATTENTION!'); 
     } else {
       this.loginService.setUserCredential(this.username,this.password);
-    this.loginService.logIn().subscribe(res => {
-      if(res) {
-        this.isLogged = true;
-        this.role = res['role'];
-        this.loginService.setRole(this.role);
-        this.loginService.setLoggedFlag(true);
-        this.toasts.success('You are logged', 'GREAT!')
-      }
-      else {
-        this.toasts.error('Credentials not valid!', 'ERROR'); 
-      }
-    });    
+      this.loginService.logIn().subscribe(res => {
+        if(res) {
+          this.isLogged = true;
+          this.role = res['role'];
+          this.loginService.setRole(this.role);
+          this.loginService.setLoggedFlag(true);
+          this.toasts.success('You are logged', 'GREAT!')
+          }
+        else {
+          this.toasts.error('Credentials not valid!', 'ERROR'); 
+        }
+      });    
     }    
   }
 

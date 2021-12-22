@@ -37,15 +37,27 @@ export class ProductsService {
   }
 
   downloadWaterProducts() :Observable<Product[]> {
-    return this.http.get<Product[]>('http://localhost:8080/rest/items/water/json');
+    const headers = new HttpHeaders(
+      { Authorization: 'Basic ' + btoa(this.username + ':' + this.password) }
+  );
+    return this.http.get<Product[]>('http://localhost:8080/api/products/u/rest/items/water/json',
+    {headers});
   }
 
   downloadFishProducts() :Observable<Product[]> {
-    return this.http.get<Product[]>('http://localhost:8080/rest/items/fish/json');
+    const headers = new HttpHeaders(
+      { Authorization: 'Basic ' + btoa(this.username + ':' + this.password) }
+  );
+    return this.http.get<Product[]>('http://localhost:8080/api/products/u/rest/items/fish/json',
+    {headers});
   }
 
   downloadChocolateProducts() :Observable<Product[]> {
-    return this.http.get<Product[]>('http://localhost:8080/rest/items/chocolate/json');
+    const headers = new HttpHeaders(
+      { Authorization: 'Basic ' + btoa(this.username + ':' + this.password) }
+  );
+    return this.http.get<Product[]>('http://localhost:8080/api/products/u/rest/items/chocolate/json',
+    {headers});
   }
   
   sendProduct(p: ProductC): Observable<ProductC> {
