@@ -37,6 +37,17 @@ To run back-end service there are several ways:
 
 ---
 
+#### > users credentials
+
+To sign-in in the home (main) page you can use the following credentials: 
+
+- [ ] Felice - 01234
+- [ ] Marco - 56789
+- [ ] John - 00000
+- [ ] Admin - 87960
+
+---
+
 #### > technologies, libraries & representations
 
 - [ ] Angular
