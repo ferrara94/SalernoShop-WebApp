@@ -54,6 +54,9 @@ To sign-in in the home (main) page you can use the following credentials:
 - [ ] Typescript and Javascript
 - [ ] HTML5 and CSS
 - [ ] PrimeNG and Angular Material
-- [ ] Spring Boot Rest Services
+- [ ] Spring Boot
+- [ ] Spring Security
+- [ ] H2 Database
+- [ ] Spring Data
 - [ ] json format
 
