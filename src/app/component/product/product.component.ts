@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Product } from '../../interface/product';
 import {CardModule} from 'primeng/card';
+import { LogInService } from 'src/app/service/login.service';
 
 
 @Component({
@@ -13,7 +14,11 @@ export class ProductComponent implements OnInit {
   @Input()
   product!: Product;
 
-  constructor() { }
+  role: string;
+
+  constructor(private loginService: LogInService) { 
+    this.role = this.loginService.getRole();
+  }
 
   ngOnInit(): void {
   }

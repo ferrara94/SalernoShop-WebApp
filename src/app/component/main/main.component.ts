@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import {MenuItem, PrimeIcons} from 'primeng/api';
@@ -19,7 +20,8 @@ export class MainComponent implements OnInit {
   constructor(
       private router: Router,
       private loginService: LogInService,
-      private toasts: ToastrService
+      private toasts: ToastrService,
+      private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {

@@ -33,6 +33,9 @@ import { AddProductsComponent } from './component/add-products/add-products.comp
 import { AddCustomersComponent } from './component/add-customers/add-customers.component';
 import { LogInComponent } from './component/log-in/log-in.component';
 import {TableModule} from 'primeng/table';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogViewComponent } from './component/dialog-view/dialog-view.component'
+
 
 
 @NgModule({
@@ -51,7 +54,8 @@ import {TableModule} from 'primeng/table';
     ChangeImagesDDirective,
     AddProductsComponent,
     AddCustomersComponent,
-    LogInComponent
+    LogInComponent,
+    DialogViewComponent
     
   ],
   imports: [
@@ -65,6 +69,7 @@ import {TableModule} from 'primeng/table';
     CardModule,
     TableModule,
     MatCardModule,
+    MatDialogModule,
     ButtonModule,
     AccordionModule,
     SlideMenuModule,

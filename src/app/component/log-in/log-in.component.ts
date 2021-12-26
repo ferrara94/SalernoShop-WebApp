@@ -77,6 +77,7 @@ export class LogInComponent implements OnInit {
       this.loginService.setUserCredential(this.username,this.password);
       this.loginService.logIn().subscribe(res => {
         if(res) {
+          console.log("logIn", res)
           this.isLogged = true;
           this.role = res['role'];
           this.loginService.setRole(this.role);

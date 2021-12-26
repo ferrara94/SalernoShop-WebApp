@@ -16,9 +16,9 @@
         <mat-card-actions>
             <button mat-button pButton type="button" label="BUY" 
             class="p-button-outlined p-button-rounded"></button>
-          <button mat-button pButton class="p-button-outlined 
+          <button *ngIf="role == 'ADMIN'" mat-button pButton class="p-button-outlined p-button-danger
           p-button-rounded">
-              SHARE</button>
+              DELETE</button>
         </mat-card-actions>
       </mat-card>
     
