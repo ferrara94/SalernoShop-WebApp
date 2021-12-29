@@ -70,7 +70,6 @@ export class ProductsService {
 
     return this.http.post<ProductC>('http://localhost:8080/api/products/a/rest/items/add/product'
     ,body, {'headers':headers});
-
   }
 
 }
