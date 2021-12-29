@@ -87,7 +87,7 @@ public class ProductsController {
 		
 	}
 	
-	@PostMapping(value ="rest/items/add/product")
+	@PostMapping(value ="/a/rest/items/add/product")
 	public ResponseEntity<?> addProduct(@RequestBody Product product){
 		
 		System.err.println("add product");

@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    console.log(this.router.url)
+
     this.router.paramMap.subscribe((params) => {
       if(params.get('isLogged')) {
         console.log(params.get('isLogged'))

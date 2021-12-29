@@ -62,12 +62,13 @@ export class ProductsService {
   
   sendProduct(p: ProductC): Observable<ProductC> {
     
-    const headers = {'content-type': 'application/json'};
+    const headers = {'content-type': 'application/json',
+    Authorization: 'Basic ' + btoa(this.username + ':' + this.password)};
     const body = JSON.stringify(p);
 
     console.log("json: ",body)
 
-    return this.http.post<ProductC>('http://localhost:8080/rest/items/add/product'
+    return this.http.post<ProductC>('http://localhost:8080/api/products/a/rest/items/add/product'
     ,body, {'headers':headers});
 
   }

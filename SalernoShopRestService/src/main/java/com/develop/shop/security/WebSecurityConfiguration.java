@@ -31,11 +31,12 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
 		return new BCryptPasswordEncoder();
 	};
 	
-	private static final String[] PRODUCTS_MATCHER = { "/api/products/**"};
+	private static final String[] PRODUCTS_MATCHER = { "/api/products/u/**"};
 	private static final String[] ALL_MATCHER = { "/api/users/_/**"};
 	private static final String[] USER_MATCHER = { "/api/users/u/**"};
 	private static final String[] ADMIN_MATCHER = { "/api/users/a/**"};
-	
+	private static final String[] PRODUCTS_A_MATCHER = { "/api/products/a/**"};
+
 	@Override
 	protected void configure(HttpSecurity http) 
 			throws Exception
@@ -43,10 +44,9 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
 		http.csrf().disable()
 		.authorizeRequests()
 		.antMatchers(ALL_MATCHER).permitAll()
-		.antMatchers(USER_MATCHER).hasAnyRole("USER")
-		.antMatchers(USER_MATCHER).hasAnyRole("ADMIN")
-		.antMatchers(PRODUCTS_MATCHER).hasAnyRole("USER")
+		.antMatchers(PRODUCTS_MATCHER).hasAnyRole("USER","ADMIN")
 		.antMatchers(ADMIN_MATCHER).hasAnyRole("ADMIN")
+		.antMatchers(PRODUCTS_A_MATCHER).hasAnyRole("ADMIN")
 		.anyRequest().authenticated()
 		.and()
 		.httpBasic()//.realmName(REALM).authenticationEntryPoint(getBasicAuthEntryPoint())
