@@ -157,7 +157,6 @@ export class ProductsComponent implements OnInit {
   }
 
   reloadProducts() {
-     console.log('reload products');
      this.getAll();
   }
 
