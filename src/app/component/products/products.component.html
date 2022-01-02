@@ -14,13 +14,13 @@
         <br><br>asadasddsfdsssssss<br>asfdfiasdhfihsdai
     </div>
 
-<section (change)="reloadProducts()" class="products-list">
+<section class="products-list">
     
     <div  >      
 
                 <div *ngFor="let p of products" class="container">
                 
-                    <app-product [product]="p" >
+                    <app-product (deletedProduct)="reloadProducts()" [product]="p" >
                     </app-product>
                 
         </div>
