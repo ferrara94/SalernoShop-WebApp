@@ -156,4 +156,8 @@ export class ProductsComponent implements OnInit {
       csvExport.generateCsv(this.products);
   }
 
+  reloadProducts() {
+     console.log('reload')
+  }
+
 }

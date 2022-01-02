@@ -72,4 +72,24 @@ export class ProductsService {
     ,body, {'headers':headers});
   }
 
+  deleteProduct(p: ProductC){
+    const options = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: 'Basic ' + btoa(this.username + ':' + this.password)
+      }),
+      body: {
+        name: p.name,
+        foodstuff: p.foodstuff,
+        price: p.price,
+        description: p.description,
+        pathImage: p.pathImage
+      }
+    }
+    return this.http.delete<any>('http://localhost:8080/api/products/a/rest/items/delete/product'
+    , options);
+  }
+  
+
+
 }
