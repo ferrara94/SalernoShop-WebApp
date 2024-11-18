@@ -2,25 +2,25 @@
 Angular FrontEnd for Salerno Shop
 
 ----
-#### > node modules
+#### > run front-end
 
-To run the application, remember to install needed packages (node modules) with the command
+To run the front-end there are several ways:
+
+- [ ] install needed packages (node modules) with the command below where the *package.json* is located. 
 ```
   npm install
 ```
-where the *package.json* is located. 
-
----
-
-#### > run front-end
-
-Start Angular SPA with the command 
+- [ ] Start Angular SPA with the command below where the *package.json* is located. 
 ```
   ng serve
 ```
-where the *package.json* is located. 
+
+OR
+
+- [ ] by using the Dockerfile located in the Docker directory
 
 ---
+
 
 #### > run back-end
 
@@ -34,6 +34,7 @@ To run back-end service there are several ways:
 
 - [ ] right click on project + run as Spring Boot App
 - [ ] by command line lunch: mvn spring-boot:run
+- [ ] by using the Dockerfile located in the Docker directory
 
 ---
 
@@ -59,4 +60,5 @@ To sign-in in the home (main) page you can use the following credentials:
 - [ ] H2 Database
 - [ ] Spring Data
 - [ ] json format
+- [ ] Docker
 
