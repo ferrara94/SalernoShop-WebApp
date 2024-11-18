@@ -1,4 +1,4 @@
-# SalernoShop-FrontEnd
+# SalernoShop-WebApp
 Angular FrontEnd for Salerno Shop
 
 ----
