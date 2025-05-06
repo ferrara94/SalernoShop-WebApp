@@ -37,6 +37,12 @@ Admin users can manage inventory, update product listings and so on.
 
 ----
 ## 📝 Instructions
+
+> ⚠️ **Note:**  
+> Since this project was developed some time ago, certain dependencies (like Angular or Node.js) may be outdated or incompatible with newer versions.  
+> 💡 To avoid version issues, it's recommended to use the provided Dockerfiles, which set up the required environment with the correct versions.
+
+
 ### Run front-end
 
 To run the front-end there are several ways:
