@@ -1,5 +1,12 @@
-# SalernoShop-WebApp
-Angular FrontEnd for Salerno Shop
+# 🛍️ Salerno Shop - Online Shopping Platform
+## Overview
+
+Salerno Shop is a full-stack e-commerce application designed to offer users an amazing online shopping experience. 
+The platform allows customers to browse a wide range of products, add items and categorize them.
+Admin users can manage inventory, update product listings and so on.
+
+**Looking for a smooth shopping experience?** 🛒 Shop it at Salerno!
+
 
 ----
 #### > run front-end
