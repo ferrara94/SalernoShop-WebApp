@@ -7,9 +7,37 @@ Admin users can manage inventory, update product listings and so on.
 
 **Looking for a smooth shopping experience?** 🛒 Shop it at Salerno!
 
+---
+
+🚀 Features
+- 👤 User Registration & Authentication
+- 🛍️ Browse All Products – View a complete list of available items
+- 🍝 Category-Based Browsing – Filter products by category (e.g., Pasta, Water)
+- ➕ Add New Products
+- 📝 Edit & Delete Products
+- 🧑‍💼 Admin Dashboard – Manage products, users, and orders
+
+---
+## Technologies Used
+
+### Backend
+- Spring Boot
+- Spring Security 
+- JWT Token Authentication
+- Spring Data JPA
+- H2 Database
+- Docker
+
+### Frontend
+- Angular
+- Typescript 
+- PrimeNG and Angular Material
+- Component-Based Architecture
+- Bootstrap
 
 ----
-#### > run front-end
+## 📝 Instructions
+### Run front-end
 
 To run the front-end there are several ways:
 
@@ -29,15 +57,11 @@ OR
 ---
 
 
-#### > run back-end
+### Run back-end
 
-In the project exists a **SpringBoot** project called **SalernoShopRestService**.
+The project includes a Spring Boot application called SalernoShopRestService, which provides REST APIs to the front-end. These APIs return Product objects and related data.
 
-This project is used to provide **Rest APIs** to Front-end; 
-
-In particular returns **Products** object and data related to them.
-
-To run back-end service there are several ways:
+To run the back-end service, there are several options:
 
 - [ ] right click on project + run as Spring Boot App
 - [ ] by command line lunch: mvn spring-boot:run
@@ -45,27 +69,17 @@ To run back-end service there are several ways:
 
 ---
 
-#### > users credentials
+## 🔐 User Credentials
 
-To sign-in in the home (main) page you can use the following credentials: 
+To sign in on the home page, you can use one of the following demo accounts:
 
-- [ ] Felice - 01234
-- [ ] Marco - 56789
-- [ ] John - 00000
-- [ ] Admin - 87960
+| Username | Password |
+|----------|----------|
+| Felice   | `01234`  |
+| Marco    | `56789`  |
+| John     | `00000`  |
+| Admin    | `87960`  |
 
----
+📝 *These are sample accounts for testing and demo purposes.*
 
-#### > technologies, libraries & representations
-
-- [ ] Angular
-- [ ] Typescript and Javascript
-- [ ] HTML5 and CSS
-- [ ] PrimeNG and Angular Material
-- [ ] Spring Boot
-- [ ] Spring Security
-- [ ] H2 Database
-- [ ] Spring Data
-- [ ] json format
-- [ ] Docker
 
