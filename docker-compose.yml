@@ -1,0 +1,21 @@
+services:
+  ssp-ui:
+    container_name: ssp-ui
+    image: ssp/ssp-ui:1.0.0
+    ports:
+      - 4200:4200
+    networks:
+      - salerno-shopping-platform
+  
+  ssp-api:
+    container_name: ssp-api
+    image: ssp/ssp:1.0.0
+    ports:
+      - 8080:8080
+    networks:
+      - salerno-shopping-platform
+
+
+networks:
+  salerno-shopping-platform:
+    driver: bridge
