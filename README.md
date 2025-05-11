@@ -40,28 +40,16 @@ Admin users can manage inventory, update product listings and so on.
 
 > ⚠️ **Note:**  
 > Since this project was developed some time ago, certain dependencies (like Angular or Node.js) may be outdated or incompatible with newer versions.  
-> 💡 To avoid version issues, it's recommended to use the provided Dockerfiles, which set up the required environment with the correct versions.
 
+💡 To avoid version issues, it's recommended to use the provided **Docker native solution**, which set up the required environment with the correct versions.
 
-### Run front-end
+### 🐳 docker compose up
 
-To run the front-end there are several ways:
+To run the entire stack, just run the docker compose file provided:
 
-- [ ] install needed packages (node modules) with the command below where the *package.json* is located. 
 ```
-  npm install
+  docker compose up
 ```
-- [ ] Start Angular SPA with the command below where the *package.json* is located. 
-```
-  ng serve
-```
-
-OR
-
-- [ ] by using the Dockerfile located in the Docker directory
-
----
-
 
 ### Run back-end
 
